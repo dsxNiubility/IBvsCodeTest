@@ -53,6 +53,7 @@
     UITextField *pwdTxt = [[UITextField alloc]init];
     pwdTxt.frame = CGRectMake(121, 225, 137, 30);
     pwdTxt.borderStyle = UITextBorderStyleRoundedRect;
+    pwdTxt.secureTextEntry = YES;
     self.pwdTxt = pwdTxt;
     [self.view addSubview:pwdTxt];
     
@@ -81,6 +82,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 
 @end

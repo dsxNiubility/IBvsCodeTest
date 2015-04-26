@@ -25,12 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIImageView *logoImg = [[UIImageView alloc]init];
-    logoImg.frame = CGRectMake(20, 40, 280, 90);
-    logoImg.contentMode = UIViewContentModeCenter;
-    self.logoImg = logoImg;
-    [self.view addSubview:logoImg];
+//    return;
+    [self addLogoImgScore:0 withCc:nil withDd:YES];
     
     UILabel *accountLbl = [[UILabel alloc]init];
     accountLbl.frame = CGRectMake(59, 187, 45, 18);
@@ -61,7 +57,7 @@
     blueView.frame = CGRectMake(113, 276, 94, 36);
     blueView.backgroundColor = [UIColor colorWithRed:0 green:122/255.0 blue:1 alpha:0.5];
     blueView.layer.cornerRadius = 10;
-    blueView.clipsToBounds = YES;
+    blueView.layer.masksToBounds = YES;
     self.blueView = blueView;
     [self.view addSubview:blueView];
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -70,13 +66,22 @@
     [loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [blueView addSubview:loginBtn];
     
-    logoImg.image = [UIImage imageNamed:@"comefrom.png"];
+    self.logoImg.image = [UIImage imageNamed:@"comefrom.png"];
     accountLbl.text = @"账号:";
     pwdLbl.text = @"密码:";
     accountTxt.placeholder = @"请输入:";
     pwdTxt.placeholder = @"请输入:";
     [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
 
+}
+
+- (void)addLogoImgScore:(int)score withCc:(UITableViewCell*)age withDd:(BOOL)ff{
+    
+    UIImageView *logoImg = [[UIImageView alloc]init];
+    logoImg.frame = CGRectMake(20, 40, 280, 90);
+    logoImg.contentMode = UIViewContentModeCenter;
+    self.logoImg = logoImg;
+    [self.view addSubview:logoImg];
 }
 
 - (void)didReceiveMemoryWarning {
